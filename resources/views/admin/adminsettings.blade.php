@@ -44,9 +44,33 @@ $(function() {
                 <h2>Form Settings</h2>
             </div>
             <div class="body">
-                <form action="{{ route('admin.main-config-update',$config->id)}}" id="basic-form" method="post" novalidate>
+                <form action="{{ route('admin.main-config-update',$config->id)}}" id="basic-form" method="post" enctype="multipart/form-data" novalidate>
                     @csrf
                     @method('put')
+                    <div class="row clearfix">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <img src="{{ url('files/mainconfig/',$config->logo)}}" class="" alt="" width="120">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Logo</label>
+                                <input type="file" name="logo" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <img src="{{ url('files/mainconfig/',$config->favicon)}}" class="" alt="" width="120">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label>Favicon</label>
+                                <input type="file" name="favicon" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label>Judul website</label>
                         <input type="text" name="judul" value="{{ $config->judul}}" class="form-control" required>

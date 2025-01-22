@@ -7,7 +7,7 @@
 <meta property="og:site_name" content="{{$global_config_data->judul}}"/>
 <meta property="og:url" content="{{ url()->current()}}"/>
 <meta property="og:description" content="{{$global_config_data->deskripsi}}"/>
-<meta property="og:image" content="{{ asset('files/image/logo.png')}}"/>
+<meta property="og:image" content="{{ url('files/mainconfig/',$global_config_data->logo) }}"/>
 @endpush
 @section('title',$global_config_data->judul)
 @section('content')

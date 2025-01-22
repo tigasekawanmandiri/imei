@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('main_configs', function (Blueprint $table) {
             $table->id();
+            $table->longText('favicon');
+            $table->longText('logo');
             $table->char('judul');
             $table->longText('deskripsi');
             $table->longText('kata_kunci');

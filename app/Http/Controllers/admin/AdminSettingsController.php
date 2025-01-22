@@ -20,16 +20,27 @@ class AdminSettingsController extends Controller
 
         $config = MainConfig::where('id',1)->first();
 
-        // if($request->hasFile('logo')) {
-        //     $request->validate([
-        //         'logo' => 'image|mimes:jpg,jpeg,png,gif'
-        //     ]);
-        //     unlink(public_path('/default/mainconfig/'.$config->logo));
-        //     $ext = $request->file('logo')->extension();
-        //     $final_name = 'logo'.'.'.$ext;
-        //     $request->file('logo')->move(public_path('/default/mainconfig/'),$final_name);
-        //     $config->logo = $final_name;
-        // }
+        if($request->hasFile('logo')) {
+            $request->validate([
+                'logo' => 'image|mimes:jpg,jpeg,png,gif'
+            ]);
+            unlink(public_path('files/mainconfig/'.$config->logo));
+            $ext = $request->file('logo')->extension();
+            $final_name = 'logo'.'.'.$ext;
+            $request->file('logo')->move(public_path('files/mainconfig/'),$final_name);
+            $config->logo = $final_name;
+        }
+
+        if($request->hasFile('favicon')) {
+            $request->validate([
+                'favicon' => 'image|mimes:jpg,jpeg,png,gif'
+            ]);
+            unlink(public_path('files/mainconfig/'.$config->favicon));
+            $ext = $request->file('favicon')->extension();
+            $final_name = 'favicon'.'.'.$ext;
+            $request->file('favicon')->move(public_path('files/mainconfig/'),$final_name);
+            $config->favicon = $final_name;
+        }
 
         $config->judul = $request->judul;
         $config->deskripsi = $request->deskripsi;

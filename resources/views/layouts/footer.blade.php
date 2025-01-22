@@ -2,9 +2,9 @@
     <div class="row">
       <div class="col-12 col-md">
         {{-- <img class="mb-2" src="{{ asset('assets/brand/bootstrap-logo.svg') }}" alt="" width="24" height="19"> --}}
-        <img src="{{ url('/files/image/logo.png')}}" alt="">
+        <img src="{{ url('files/mainconfig/',$global_config_data->logo) }}" width="120" alt="">
         <div style="padding: 10px 0px 10px 0px;"></div>
-        <p>imei.id merupakan marketplace produk virtual & fisik yang dapat memenuhi kebutuhan anda, sistem yang interaktif namun tetap mengedepankan keamanan & kenyamanan pengguna..</p>
+        <p>{{ $global_config_data->deskripsi }}</p>
         <small class="d-block mb-3 text-body-secondary">&copy; 2016-2024 </small>
       </div>
       <div class="col-12 col-md">

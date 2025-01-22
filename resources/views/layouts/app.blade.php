@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="{{ asset('assets/dist/css/style.css')}}">
         <link rel="stylesheet" href="{{ asset('assets/bootstrap-icons/font/bootstrap-icons.css')}}">
         <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.min.css') }}">
-        <link rel="shortcut icon" href="{{ asset('files/image/favicon.ico') }}" type="image/x-icon">
-        <link rel="icon" href="{{ asset('files/image/favicon.ico') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ url('files/mainconfig/',$global_config_data->favicon) }}" type="image/x-icon">
+        <link rel="icon" href="{{ url('files/mainconfig/',$global_config_data->favicon) }}" type="image/x-icon">
         <link rel="canonical" href="{{ url()->current()}}"/>
         @stack('style')
 

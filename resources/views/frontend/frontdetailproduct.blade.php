@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @push('meta-seo')
-<meta name="description" content="{!!$details->product_description!!}">
-<meta name="keywords" content="{{$global_config_data->kata_kunci}}">
-<meta property="og:title" content="{{$details->product_name}}" />
-<meta property="og:site_name" content="{{$global_config_data->judul}}"/>
-<meta property="og:url" content="{{ url()->current()}}"/>
-<meta property="og:description" content="{!!$details->product_description!!}"/>
-<meta property="og:image" content="{{ asset('files/image/logo.png')}}"/>
+    <meta name="description" content="{!!$details->product_description!!}">
+    <meta name="keywords" content="{{$global_config_data->kata_kunci}}">
+    <meta property="og:title" content="{{$details->product_name}}" />
+    <meta property="og:site_name" content="{{$global_config_data->judul}}"/>
+    <meta property="og:url" content="{{ url()->current()}}"/>
+    <meta property="og:description" content="{!!$details->product_description!!}"/>
+    <meta property="og:image" content="{{ url('/files/thumbnail_product/',$details->product_thumbnail)}}"/>
 @endpush
 
 @section('title',$global_config_data->judul)

@@ -41,32 +41,18 @@ $(function() {
     <div class="col-md-12">
         <div class="card">
             <div class="header">
-                <h2>Input Pelanggan Baru</h2>
+                <h2>Input Kategori Baru</h2>
             </div>
             <div class="body">
-                <form action="{{ route('admin.pelanggan.create')}}" id="basic-form" method="post" novalidate>
+                <form action="{{ route('admin.category.create')}}" id="basic-form" method="post" novalidate>
                     @csrf
                     <div class="form-group">
-                        <input type="text" name="nama_pelanggan" value="{{ old('nama_pelanggan')}}" class="form-control" placeholder="Nama Pelanggan Cth. Iqbal Naufal F" required>
+                        <label>Nama Kategori</label>
+                        <input type="text" name="nama_kategori" value="{{ old('nama_kategori')}}" class="form-control" required>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" value="{{ old('email')}}" class="form-control" placeholder="Email Pelanggan Cth. papanaufal@gmail.com" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="number" name="telepon" value="{{ old('telepon')}}" class="form-control" placeholder="No WA Pelanggan Cth. 089664635355" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="instagram" value="{{ old('instagram')}}" class="form-control" placeholder="Instagram Pelanggan ( JIKA ADA )" required>
-                    </div>
-                    <div>
-                        <strong style="color:red; font-size:18px;">Note :</strong>
-                        <p style="margin:0px;">Jika Email kosong maka isi dengan format : <span style="color: red;">kosong001@gmail.com</span></p>
-                        <p style="margin:0px;">Jika Instagram kosong maka isi dengan tanda strip <span style="color: red;">( - )</span> </p>
-                        <br>
-                    </div>
+                    <br>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
-               
             </div>
         </div>
     </div>
@@ -76,7 +62,7 @@ $(function() {
     <div class="col-md-12">
         <div class="card">
             <div class="header">
-                <h2>Data Pelanggan</h2>
+                <h2>Data Kategori</h2>
             </div>
             <div class="body">
                 <div class="table-responsive">
@@ -85,9 +71,6 @@ $(function() {
                             <tr>
                                 <th>#</th>
                                 <th>Nama</th>
-                                <th>Email</th>
-                                <th>Telepon</th>
-                                <th>Instagram</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -95,21 +78,22 @@ $(function() {
                             <tr>
                                 <th>#</th>
                                 <th>Nama</th>
-                                <th>Email</th>
-                                <th>Telepon</th>
-                                <th>Instagram</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($allpelanggan as $item)
+                            @foreach ($allcategory as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{strtoupper($item->nama_pelanggan)}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->telepon}}</td>
-                                <td>{{$item->instagram}}</td>
-                                <td></td>
+                                <td>{{$item->category_name}}</td>
+                                <td>
+                                    <a href="{{ route('admin.category.edit', $item->id)}}" class="btn btn-sm btn-primary">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a href="{{ route('admin.category.destroy', $item->id)}}" class="btn btn-sm btn-danger">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -15,7 +15,7 @@ class AdminPelangganController extends Controller
     public function index(){
         return view('admin.adminpelanggan',[
             'seo_title' => 'Admin | Pelanggan',
-            'allpelanggan' => Pelanggan::all(),
+            'allpelanggan' => Pelanggan::orderBy('id','desc')->get(),
         ]);
     }
 
@@ -27,16 +27,15 @@ class AdminPelangganController extends Controller
                 'nama_pelanggan' => ['required','string'],
                 'email' => ['required','string','unique:pelanggans,email'],
                 'telepon' => ['required','string','unique:pelanggans,telepon'],
-                'instagram' => ['required','string','unique:pelanggans,instagram'],
-                
+                // 'instagram' => ['required','string',],
             ],[
                 'nama_pelanggan.required' => 'Email harus di isi',
                 'email.required' => 'Email harus di isi',
                 'email.unique' => 'Email sudah digunakan',
                 'telepon.required' => 'Telepon harus di isi',
                 'telepon.unique' => 'Telepon sudah digunakan',
-                'instagram.required' => 'Instagram harus di isi',
-                'instagram.unique' => 'Instagram sudah digunakan',
+                // 'instagram.required' => 'Instagram harus di isi',
+                // 'instagram.unique' => 'Instagram sudah digunakan',
             ]);
     
             $pelanggan = new Pelanggan();

@@ -48,25 +48,56 @@
                                 <li class="active"><a href="#">Resume</a></li>
                             </ul>
                         </li>
-                        {{-- <li>
-                            <a href="#App" class="has-arrow"><i class="fa fa-th-large"></i><span>Produk</span></a>
+                        <li class="{{ Request::is('admin/product') || Request::is('admin/varian') || Request::is('admin/duration') || Request::is('admin/category') || Request::is('admin/products-create') ? 'active' : '' }}">
+                            <a href="#App" class="has-arrow"><i class="fa fa-th-large"></i><span>Master Produk</span></a>
                             <ul>
-                                <li><a href="#">Produk</a></li>
-                                <li><a href="#">Produk</a></li>
+                                <li class="{{ Request::is('admin/product') ? 'active' : '' }}"><a href="{{ route('admin.product')}}">List Produk</a></li>
+                                <li class="{{ Request::is('admin/products-create') ? 'active' : '' }}"><a href="{{ route('admin.products.create')}}">Tambah Produk</a></li>
+                                <li class="{{ Request::is('admin/category') ? 'active' : '' }}"><a href="{{ route('admin.category')}}">Category</a></li>
+                                <li class="{{ Request::is('admin/varian') ? 'active' : '' }}"><a href="{{ route('admin.varian')}}">Varian</a></li>
+                                <li class="{{ Request::is('admin/duration') ? 'active' : '' }}"><a href="{{ route('admin.duration')}}">Duration</a></li>
                             </ul>
-                        </li> --}}
+                        </li>
+                        <li class="{{ Request::is('admin/kanal-penjualan') || Request::is('admin/akun-penjualan') || Request::is('admin/sumber-interaksi') || Request::is('admin/strategi-sellings') ? 'active' : '' }}">
+                            <a href="#App" class="has-arrow"><i class="fa fa-th-large"></i><span>Master Strategi</span></a>
+                            <ul>
+                                <li class="{{ Request::is('admin/kanal-penjualan') ? 'active' : '' }}"><a href="{{ route('admin.kanal.penjualan')}}">Kanal Penjualan</a></li>
+                                <li class="{{ Request::is('admin/akun-penjualan') ? 'active' : '' }}"><a href="{{ route('admin.akun.penjualan')}}">Akun Penjualan</a></li>
+                                <li class="{{ Request::is('admin/sumber-interaksi') ? 'active' : '' }}"><a href="{{ route('admin.sumber.interaksi')}}">Sumber Interaksi</a></li>
+                                <li class="{{ Request::is('admin/strategi-sellings') ? 'active' : '' }}"><a href="{{ route('admin.strategi.sellings')}}">Strategi Selling</a></li>
+                            </ul>
+                        </li>
                         <li class="{{ Request::is('admin/jabatan') || Request::is('admin/posisi') || Request::is('admin/karyawan') ? 'active' : '' }}">
-                            <a href="#Widgets" class="has-arrow"><i class="fa fa-users"></i><span>Karyawan</span></a>
+                            <a href="#Widgets" class="has-arrow"><i class="fa fa-users"></i><span>Master Karyawan</span></a>
                             <ul>                                    
                                 <li class="{{ Request::is('admin/karyawan') ? 'active' : '' }}"><a href="{{ route('admin.karyawan')}}">Karyawan</a></li>
                                 <li class="{{ Request::is('admin/jabatan') ? 'active' : '' }}"><a href="{{ route('admin.jabatan')}}">Jabatan</a></li>
                                 <li class="{{ Request::is('admin/posisi') ? 'active' : '' }}"><a href="{{ route('admin.posisi')}}">Posisi</a></li>
                             </ul>
                         </li>
+                        <li class="{{ Request::is('admin/bank') ? 'active' : '' }}">
+                            <a href="#uiElements" class="has-arrow"><i class="fa fa-dollar"></i><span>Master Bank</span></a>
+                            <ul>
+                                <li class="{{ Request::is('admin/bank') ? 'active' : '' }}"><a href="{{ route('admin.bank')}}">List Bank</a></li>
+                            </ul>
+                        </li>
                         <li class="{{ Request::is('admin/pelanggan') ? 'active' : '' }}">
-                            <a href="#uiElements" class="has-arrow"><i class="fa fa-users"></i><span>Pelanggan</span></a>
+                            <a href="#uiElements" class="has-arrow"><i class="fa fa-users"></i><span>Master Pelanggan</span></a>
                             <ul>
                                 <li class="{{ Request::is('admin/pelanggan') ? 'active' : '' }}"><a href="{{ route('admin.pelanggan')}}">List Pelanggan</a></li>
+                            </ul>
+                        </li>
+                        <li class="{{ Request::is('admin/sales') ? 'active' : '' }}">
+                            <a href="#uiElements" class="has-arrow"><i class="fa fa-users"></i><span>Penjualan / Sales</span></a>
+                            <ul>
+                                <li class="{{ Request::is('admin/sales') ? 'active' : '' }}"><a href="{{ route('admin.sales')}}">Create Penjualan</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="{{ Request::is('admin/main-config') ? 'active' : '' }}">
+                            <a href="#uiElements" class="has-arrow"><i class="fa fa-users"></i><span>Settings</span></a>
+                            <ul>
+                                <li class="{{ Request::is('admin/main-config') ? 'active' : '' }}"><a href="{{ route('admin.main-config')}}">Main Page</a></li>
                             </ul>
                         </li>
                     </ul>

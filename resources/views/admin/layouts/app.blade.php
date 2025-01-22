@@ -23,6 +23,19 @@
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="{{ asset('admin/assets/css/main.css') }}">
 @stack('style')
+
+<!-- Javascript -->
+<script src="{{ asset('admin/assets/vendor/jquery/jquery-3.5.1.min.js') }}"></script>    
+<script src="{{ asset('admin/assets/bundles/libscripts.bundle.js') }}"></script>    
+<script src="{{ asset('admin/assets/bundles/vendorscripts.bundle.js') }}"></script>
+
+<script src="{{ asset('admin/assets/bundles/c3.bundle.js') }}"></script>
+<script src="{{ asset('admin/assets/vendor/toastr/toastr.js') }}"></script>
+
+<!-- page js file -->
+<script src="{{ asset('admin/assets/bundles/mainscripts.bundle.js') }}"></script>
+
+@stack('script')
 </head>
 
 <body data-theme="light" class="font-nunito">
@@ -50,17 +63,7 @@
     
 </div>
 
-<!-- Javascript -->
-<script src="{{ asset('admin/assets/bundles/libscripts.bundle.js') }}"></script>    
-<script src="{{ asset('admin/assets/bundles/vendorscripts.bundle.js') }}"></script>
 
-<script src="{{ asset('admin/assets/bundles/c3.bundle.js') }}"></script>
-<script src="{{ asset('admin/assets/vendor/toastr/toastr.js') }}"></script>
-
-<!-- page js file -->
-<script src="{{ asset('admin/assets/bundles/mainscripts.bundle.js') }}"></script>
-
-@stack('script')
 
 @if ($errors->any())
 @foreach ($errors->all() as $error)

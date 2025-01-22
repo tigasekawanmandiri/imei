@@ -37,46 +37,32 @@ $(function() {
     </div>
 </div>
 
-<div class="row clearfix">
+{{-- <div class="row clearfix">
     <div class="col-md-12">
         <div class="card">
             <div class="header">
-                <h2>Input Pelanggan Baru</h2>
+                <h2>Input Jabatan Baru</h2>
             </div>
             <div class="body">
-                <form action="{{ route('admin.pelanggan.create')}}" id="basic-form" method="post" novalidate>
+                <form action="{{ route('admin.jabatan.create')}}" id="basic-form" method="post" novalidate>
                     @csrf
                     <div class="form-group">
-                        <input type="text" name="nama_pelanggan" value="{{ old('nama_pelanggan')}}" class="form-control" placeholder="Nama Pelanggan Cth. Iqbal Naufal F" required>
+                        <label>Nama Jabatan</label>
+                        <input type="text" name="nama_jabatan" class="form-control" required>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" value="{{ old('email')}}" class="form-control" placeholder="Email Pelanggan Cth. papanaufal@gmail.com" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="number" name="telepon" value="{{ old('telepon')}}" class="form-control" placeholder="No WA Pelanggan Cth. 089664635355" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="instagram" value="{{ old('instagram')}}" class="form-control" placeholder="Instagram Pelanggan ( JIKA ADA )" required>
-                    </div>
-                    <div>
-                        <strong style="color:red; font-size:18px;">Note :</strong>
-                        <p style="margin:0px;">Jika Email kosong maka isi dengan format : <span style="color: red;">kosong001@gmail.com</span></p>
-                        <p style="margin:0px;">Jika Instagram kosong maka isi dengan tanda strip <span style="color: red;">( - )</span> </p>
-                        <br>
-                    </div>
+                    <br>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
-               
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="row clearfix">
     <div class="col-md-12">
         <div class="card">
             <div class="header">
-                <h2>Data Pelanggan</h2>
+                <h2>Data Produk</h2>
             </div>
             <div class="body">
                 <div class="table-responsive">
@@ -85,9 +71,7 @@ $(function() {
                             <tr>
                                 <th>#</th>
                                 <th>Nama</th>
-                                <th>Email</th>
-                                <th>Telepon</th>
-                                <th>Instagram</th>
+                                <th>Category</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -95,21 +79,19 @@ $(function() {
                             <tr>
                                 <th>#</th>
                                 <th>Nama</th>
-                                <th>Email</th>
-                                <th>Telepon</th>
-                                <th>Instagram</th>
+                                <th>Category</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($allpelanggan as $item)
+                            @foreach ($allproducts as $item)
                             <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{strtoupper($item->nama_pelanggan)}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->telepon}}</td>
-                                <td>{{$item->instagram}}</td>
-                                <td></td>
+                                <td><img width="40px" src="{{ url('files/thumbnail_product',$item->product_thumbnail)}}" alt=""></td>
+                                <td>{{$item->product_name}}</td>
+                                <td>{{$item->rProductCategory->category_name}}</td>
+                                <td>
+                                    <a href="{{ route('admin.products.edit', $item->id) }}" data-id="{{$item->id}}" class="btn btn-primary edit-product">Edit</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
